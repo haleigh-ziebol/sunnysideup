@@ -5,6 +5,9 @@ import './User.css'
 import ObsModal from '../ObsModal/ObsModal';
 import NavBar from '../NavBar/NavBar';
 
+import Modal from '@mui/material/Modal';
+
+
 
 function UserPage() {
 
@@ -12,9 +15,11 @@ function UserPage() {
     const [observationForModal, setObservationForModal] =useState({});
     const [obsI, setObsI] = useState(0);
 
+    const handleClose = () => setObservationModal(false);
+
     const { isLoaded } = useLoadScript({
 
-    googleMapsApiKey: ,
+    googleMapsApiKey: '',
     });
 
     const mapStyle = {        
@@ -61,8 +66,18 @@ function UserPage() {
   return (
     <div className='profilepage'>
       <div className='mapcontainer'>
-        {observationModal && <ObsModal className="overlay obs-modal" observation={observationForModal} i={obsI} setObservationModal={setObservationModal} />}
-        {!isLoaded ? (
+        <Modal
+          open={observationModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div className='box-item8'>
+            <img src={observationForModal.img} width="200" height ="200"/>
+            <h1>{observationForModal.response}</h1>
+          </div>
+        </Modal>
+              {!isLoaded ? (
             <h1>Loading...</h1>
           ) : ( 
             <div>
