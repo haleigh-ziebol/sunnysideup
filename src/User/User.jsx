@@ -40,25 +40,29 @@ function UserPage() {
         id:1, 
         location: [45, -93.2],
         img: "avatars/egg1.svg",
-        response: "I went for a walk by the lake!"
+        response: "I went for a walk by the lake!",
+        modal:"dialog/main.svg"
       },
       {
         id:2, 
         location: [44.97, -93.4],
         img: "avatars/egg2.svg",
-        response: "Slept in late"
+        response: "Slept in late",
+        modal:"dialog/stock.svg"
       },
       {
         id:3, 
         location: [44.90, -93.3],
         img: "avatars/egg3.svg",
-        response: "DRANK A WHOLE GALLON OF SUNNY D!!!"
+        response: "DRANK A WHOLE GALLON OF SUNNY D!!!",
+        modal:"dialog/stock.svg"
       },
       {
         id:4, 
         location: [44.80, -93.3],
         img: "avatars/egg4.svg",
-        response: "Cuddled my cats- cuddle yours for me"
+        response: "Cuddled my cats- cuddle yours for me",
+        modal:"dialog/stock.svg"
       },
       
     ]
@@ -92,10 +96,10 @@ function UserPage() {
                       position={{lat: parseFloat(observation.location[0]), lng: parseFloat(observation.location[1])}} 
                       key={observation.id}
                       onClick={() => modalSelect(observation, i)}
-                      // icon={{
-                      //   url: (require('./egg.svg').default),
-                      //   scale:7
-                      // }}
+                      icon={{
+                        url: observation.img,
+                        scale:0.5
+                      }}
                     />
                   })
                 } 
