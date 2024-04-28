@@ -23,7 +23,7 @@ function UserPage() {
     });
 
     const mapStyle = {        
-      height: "475px",
+      height: "500px",
       width: "360px"
     };
 
@@ -69,7 +69,6 @@ function UserPage() {
 
   return (
     <div className='profilepage'>
-      <div className='mapcontainer'>
         <Modal
           open={observationModal}
           onClose={handleClose}
@@ -81,6 +80,7 @@ function UserPage() {
             <h1>{observationForModal.response}</h1>
           </div>
         </Modal>
+      <div className='mapcontainer'>
               {!isLoaded ? (
             <h1>Loading...</h1>
           ) : ( 
